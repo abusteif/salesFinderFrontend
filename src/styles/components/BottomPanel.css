@@ -1,0 +1,16 @@
+.bottom-panel {
+    display: flex;
+    width: 100vw;
+    height: 100%;
+    /* flex-direction: column; */
+}
+
+.table {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    p, div, span {
+        font-size: 10px;
+       }
+}
