@@ -7,8 +7,8 @@ const initialState = {
   category: "",
   discountRange: [0, 100],
   priceRange: [0, 1000],
-  maxPriceRange: [0, 100],
-  maxDiscountRange: [50, 100],
+  maxPriceRange: [0, 1000],
+  maxDiscountRange: [0, 100],
   searchText: "",
 };
 
@@ -43,16 +43,17 @@ const handleDateTime = (items) => {
 };
 
 const updateRangeHelper = (currentRange, newRange) => {
-  let updatedRange = [];
-  if (currentRange[0] < newRange[0] || currentRange[0] > newRange[1])
-    updatedRange[0] = newRange[0];
-  else updatedRange[0] = currentRange[0];
+  // let updatedRange = [];
+  // if (currentRange[0] < newRange[0] || currentRange[0] > newRange[1])
+  //   updatedRange[0] = newRange[0];
+  // else updatedRange[0] = currentRange[0];
 
-  if (currentRange[1] > newRange[1] || currentRange[1] < newRange[0])
-    updatedRange[1] = newRange[1];
-  else updatedRange[1] = currentRange[1];
+  // if (currentRange[1] > newRange[1] || currentRange[1] < newRange[0])
+  //   updatedRange[1] = newRange[1];
+  // else updatedRange[1] = currentRange[1];
 
-  return updatedRange;
+  // return updatedRange;
+  return [...currentRange]
 };
 
 const isWithinRange = (num, range) => {
@@ -85,8 +86,8 @@ export const selectionSlice = createSlice({
       let discountRange = getDiscountRange(filteredItems);
       let priceRange = getPriceRange(filteredItems);
 
-      state.maxDiscountRange = discountRange;
-      state.maxPriceRange = priceRange;
+      // state.maxDiscountRange = discountRange;
+      // state.maxPriceRange = priceRange;
 
       let updatedDiscountRange = updateRangeHelper(
         state.discountRange,
